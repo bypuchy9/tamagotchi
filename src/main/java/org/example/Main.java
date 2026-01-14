@@ -8,18 +8,18 @@ public class Main {
     static int diversion = 6;
 
     public static void main(String[] args) {
-        mostrarEstado(); // prueba inicial
         int opcion;
         do {
             opcion = menuPrincipal();
 
             if (opcion == 1) {
                 mostrarEstado();
+            } else if (opcion == 2) {
+                comer();
             }
 
         } while (opcion != 0);
     }
-
 
     private static int menuPrincipal() {
         int opcion;
@@ -44,7 +44,7 @@ public class Main {
             System.out.println(" | |");
         }
         else if (saciedad <= 4) {
-            System.out.println("(• • ) Tengo hambre!");
+            System.out.println("(o_o) Tengo hambre!");
             System.out.println("/|x|\\");
             System.out.println(" | |");
         }
@@ -54,12 +54,12 @@ public class Main {
             System.out.println(" | |");
         }
         else if (diversion <= 4) {
-            System.out.println("(- ) Estoy aburrido");
+            System.out.println("(-_-) Estoy aburrido");
             System.out.println("/|_|\\");
             System.out.println("/ \\");
         }
         else {
-            System.out.println("(•‿•) Estoy feliz!");
+            System.out.println("(^_^) Estoy feliz!");
             System.out.println("/|_|\\");
             System.out.println(" | |");
         }
@@ -68,6 +68,17 @@ public class Main {
         System.out.println("Energia: " + energia);
         System.out.println("Diversion: " + diversion);
     }
+
+    //
+    private static void comer() {
+        saciedad += 2;
+        diversion -= 1;
+        energia -= 1;
+
+        if (saciedad > 10) saciedad = 10;
+        if (diversion < 0) diversion = 0;
+        if (energia < 0) energia = 0;
+
+        mostrarEstado();
+    }
 }
-
-
