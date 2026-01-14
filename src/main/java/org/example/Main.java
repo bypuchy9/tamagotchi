@@ -76,7 +76,7 @@ public class Main {
 
     //
     private static void comer() {
-        saciedad += 3;
+        saciedad += 4;
         diversion -= 1;
         energia -= 1;
 
@@ -100,7 +100,7 @@ public class Main {
         mostrarEstado();
     }
     private static void dormir() {
-        energia += 3;
+        energia += 4;
         saciedad -= 2;
         diversion -= 1;
 
