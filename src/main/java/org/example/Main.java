@@ -20,6 +20,8 @@ public class Main {
                 jugar();
             } else if (opcion == 4) {
                 dormir();
+            } else if (opcion == 5){
+                correr();
             }
 
         } while (opcion != 0);
@@ -33,11 +35,12 @@ public class Main {
             System.out.println("2. Comer");
             System.out.println("3. Jugar");
             System.out.println("4. Dormir");
+            System.out.println("5. Correr");
             System.out.println("----------------");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
             opcion = sc.nextInt();
-        } while (opcion < 0 || opcion > 4);
+        } while (opcion < 0 || opcion > 5);
         return opcion;
     }
 
@@ -110,5 +113,16 @@ public class Main {
 
         mostrarEstado();
     }
+    private static void correr() {
+        diversion += 2;
+        energia -= 2;
+        saciedad -= 1;
 
+        if (diversion > 10) diversion = 10;
+        if (energia < 0) energia = 0;
+        if (saciedad < 0) saciedad = 0;
+
+        System.out.println("El tamagotchi ha salido a correr");
+        mostrarEstado();
+    }
 }
