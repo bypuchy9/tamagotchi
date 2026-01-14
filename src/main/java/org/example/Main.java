@@ -16,10 +16,15 @@ public class Main {
                 mostrarEstado();
             } else if (opcion == 2) {
                 comer();
+            } else if (opcion == 3) {
+                jugar();
+            } else if (opcion == 4) {
+                dormir();
             }
 
         } while (opcion != 0);
     }
+
 
     private static int menuPrincipal() {
         int opcion;
@@ -39,17 +44,17 @@ public class Main {
     private static void mostrarEstado() {
 
         if (saciedad <= 0 || energia <= 0 || diversion <= 0) {
-            System.out.println("(x_x) :( Game Over ):");
+            System.out.println("(x_x) Game Over");
             System.out.println("/|_|\\");
             System.out.println(" | |");
         }
         else if (saciedad <= 4) {
-            System.out.println("(o_o) Tengo hambre!");
+            System.out.println("(o_o) Tengo hambre");
             System.out.println("/|x|\\");
             System.out.println(" | |");
         }
         else if (energia <= 4) {
-            System.out.println("(-_-) Zzz");
+            System.out.println("(-_-) Estoy cansado");
             System.out.println("/|_|\\");
             System.out.println(" | |");
         }
@@ -59,7 +64,7 @@ public class Main {
             System.out.println("/ \\");
         }
         else {
-            System.out.println("(^_^) Estoy feliz!");
+            System.out.println("(^_^) Estoy feliz");
             System.out.println("/|_|\\");
             System.out.println(" | |");
         }
@@ -71,7 +76,7 @@ public class Main {
 
     //
     private static void comer() {
-        saciedad += 2;
+        saciedad += 3;
         diversion -= 1;
         energia -= 1;
 
@@ -81,4 +86,29 @@ public class Main {
 
         mostrarEstado();
     }
+
+    //
+    private static void jugar() {
+        diversion += 2;
+        energia -= 2;
+        saciedad -= 1;
+
+        if (diversion > 10) diversion = 10;
+        if (energia < 0) energia = 0;
+        if (saciedad < 0) saciedad = 0;
+
+        mostrarEstado();
+    }
+    private static void dormir() {
+        energia += 3;
+        saciedad -= 2;
+        diversion -= 1;
+
+        if (energia > 10) energia = 10;
+        if (saciedad < 0) saciedad = 0;
+        if (diversion < 0) diversion = 0;
+
+        mostrarEstado();
+    }
+
 }
